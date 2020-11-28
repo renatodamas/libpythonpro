@@ -7,7 +7,7 @@ pyflakes==2.2.0
 pluggy==0.13.1
 iniconfig
 toml==0.10.1
-packaging
+packaging==20.5
 more-itertools>=4.0.0
 attrs>=17.4.0
 py>=1.8.2
