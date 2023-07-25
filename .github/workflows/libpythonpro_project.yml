@@ -32,4 +32,5 @@ jobs:
         env:
           CODECOV_TOKEN: "843d0e48-24be-4fe6-b002-2178212cd800"
         run: |
+          sudo pip install codecov
           pipenv run codecov
