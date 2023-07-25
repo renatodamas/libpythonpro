@@ -1,10 +1,33 @@
 import codecs
 import os
 import sys
+import toml
 
 from distutils.util import convert_path
 from fnmatch import fnmatchcase
 from setuptools import setup, find_packages
+
+
+def get_install_requirements():
+    """Parse the Pipfile and return a list of requirements."""
+    try:
+        # read my pipfile
+        with open('Pipfile', 'r') as fh:
+            pipfile = fh.read()
+        # parse the toml
+        pipfile_toml = toml.loads(pipfile)
+    except FileNotFoundError:
+        return []
+    # if the package's key isn't there then just return an empty
+    # list
+    try:
+        required_packages = pipfile_toml['packages'].items()
+    except KeyError:
+        return []
+        # If a version/range is specified in the Pipfile honor it
+        # otherwise just list the package
+    return ["{0}{1}".format(pkg, ver) if ver != "*"
+            else pkg for pkg, ver in required_packages]
 
 
 def read(fname):
@@ -131,8 +154,6 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Framework :: Pytest",
     ],
-    install_requires=[
-        'requests'
-    ],
+    install_requires=get_install_requirements(),
     zip_safe=False,
 )
