@@ -4,7 +4,7 @@ version = "0.2.0"
 description = "Módulo para exemplificar construção de projetos Python no curso PyTools"
 authors = ["Renzo Nuccitelli <renzo@python.pro.br>"]
 readme = "README.md"
-license = "MIT"
+license = "AGPL-3.0-or-later"
 repository = "https://github.com/pythonprobr/libpythonpro"
 keywords = ["education", "pythonpro"]
 classifiers = [
@@ -17,7 +17,6 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Framework :: Pytest",
 ]
-
 
 [tool.poetry.dependencies]
 python = "^3.10"
