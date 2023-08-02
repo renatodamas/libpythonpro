@@ -1,3 +1,5 @@
+run:
+  - pip install poetry
+  - poetry export --without-hashes --format=requirements.txt > requirements.txt
 requirements:
-  - pyproject.toml
-  - poetry.lock
+  - requirements.txt
